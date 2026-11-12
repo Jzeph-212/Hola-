@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¡Feliz cumpleaños!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="locked">
+
+<!-- ═══════════════════════════════════════════
+     1) VIDEO DE INTRO (lo primero que se ve)
+     El archivo del video debe llamarse: intro.mp4
+     y estar en la misma carpeta que este index.html
+     ═══════════════════════════════════════════ -->
+<div class="intro" id="intro">
+  <video id="introVideo" src="intro.mp4" autoplay muted playsinline preload="auto"></video>
+
+  <button class="intro-btn intro-sound" id="soundBtn" type="button">🔊 Activar sonido</button>
+  <button class="intro-btn intro-skip"  id="skipBtn"  type="button">Saltar ›</button>
+  <button class="intro-play" id="playBtn" type="button" hidden>▶ Toca para ver la sorpresa</button>
+
+  <div class="intro-bar"><span id="introBar"></span></div>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+
+<!-- ═══════════════════════════════════════════
+     2) CONTENIDO DE LA PÁGINA
+     ═══════════════════════════════════════════ -->
+<main>
+
+  <!-- Portada -->
+  <header class="hero">
+    <div class="bunting" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-inner">
+      <p class="hero-lead">¡Feliz cumpleaños!</p>
+      <h1 class="hero-name" data-fill="nombre">NOMBRE</h1>
+      <div class="age" aria-label="años que cumple">
+        <span class="age-num" data-fill="edad">10</span>
+        <span class="age-txt">años de ser<br/>increíble</span>
+      </div>
+      <a class="btn btn-sun" href="#mensaje">Ver mi mensaje</a>
+    </div>
+
+    <span class="float f1" aria-hidden="true">🎈</span>
+    <span class="float f2" aria-hidden="true">🎂</span>
+    <span class="float f3" aria-hidden="true">🎁</span>
+    <span class="float f4" aria-hidden="true">🎈</span>
+    <span class="float f5" aria-hidden="true">🎉</span>
+  </header>
+
+  <!-- Carta de felicitación -->
+  <section class="message" id="mensaje">
+    <article class="letter">
+      <h2 data-fill="saludo">Querido NOMBRE,</h2>
+      <div id="letterBody"></div>
+      <p class="sign" data-fill="firma">Con mucho cariño</p>
+    </article>
+  </section>
+
+  <!-- Deseos -->
+  <section class="wishes">
+    <h2>Mis deseos para ti</h2>
+    <div class="wish-strip" id="wishStrip"></div>
+  </section>
+
+  <!-- Soplar la vela -->
+  <section class="candle">
+    <div class="cake" id="cake" aria-hidden="true">
+      <span class="flame" id="flame">🔥</span>
+      <span class="cake-emoji">🎂</span>
+    </div>
+    <p class="candle-text" id="candleText">Pide un deseo en silencio…</p>
+    <button class="btn btn-sun" id="blowBtn" type="button">🕯️ Soplar la vela</button>
+  </section>
+
+  <footer class="foot">
+    <p>🎈 ¡Que cumplas muchos más! 🎈</p>
+  </footer>
+</main>
+
+
+<!-- ═══════════════════════════════════════════
+     3) AQUÍ CAMBIAS LOS TEXTOS DE LA FELICITACIÓN
+        Solo edita lo que está entre comillas.
+     ═══════════════════════════════════════════ -->
+<script>
+const CONFIG = {
+  nombre: "NOMBRE",                    // Nombre de quien cumple años
+  edad:   "10",                        // Años que cumple
+  saludo: "Querido NOMBRE,",           // Cómo empieza la carta
+
+  // Cada línea entre comillas es un párrafo de la carta
+  mensaje: [
+    "Hoy es tu día y quería que lo supieras: eres una persona muy especial para mí.",
+    "Gracias por todos los momentos que hemos compartido y por hacer tan alegre cada día a tu lado.",
+    "Que este nuevo año de vida venga cargado de salud, sonrisas y todo lo que sueñas."
+  ],
+
+  firma: "Con mucho cariño,\nTU NOMBRE",   // \n hace un salto de línea
+
+  // Tres deseos (ícono + texto corto)
+  deseos: [
+    { icono: "💛", texto: "Mucha felicidad" },
+    { icono: "🌟", texto: "Sueños cumplidos" },
+    { icono: "🎁", texto: "Sorpresas lindas" }
+  ]
+};
+</script>
+
+<script>
+/* ── Rellenar textos desde CONFIG ── */
+document.querySelectorAll('[data-fill]').forEach(el => {
+  el.textContent = CONFIG[el.dataset.fill];
+});
+CONFIG.mensaje.forEach(txt => {
+  const p = document.createElement('p');
+  p.textContent = txt;
+  document.getElementById('letterBody').appendChild(p);
+});
+CONFIG.deseos.forEach(d => {
+  const div = document.createElement('div');
+  div.className = 'wish';
+  div.innerHTML = '<span aria-hidden="true"></span><p></p>';
+  div.querySelector('span').textContent = d.icono;
+  div.querySelector('p').textContent = d.texto;
+  document.getElementById('wishStrip').appendChild(div);
+});
+document.title = '¡Feliz cumpleaños, ' + CONFIG.nombre + '!';
+
+/* ── Confeti ── */
+function confetti(duration) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const c = document.getElementById('confetti'), ctx = c.getContext('2d');
+  c.width = innerWidth; c.height = innerHeight;
+  const colors = ['#FF5C7A', '#FFC53D', '#4FD6B5', '#7C5CFF', '#FF8A3D', '#FFFFFF'];
+  const pieces = Array.from({ length: 150 }, () => ({
+    x: Math.random() * c.width,
+    y: -20 - Math.random() * c.height * 0.6,
+    w: 6 + Math.random() * 6,
+    h: 9 + Math.random() * 9,
+    vx: -1.2 + Math.random() * 2.4,
+    vy: 2 + Math.random() * 3.5,
+    r: Math.random() * 6,
+    vr: -0.2 + Math.random() * 0.4,
+    col: colors[Math.floor(Math.random() * colors.length)]
+  }));
+  const t0 = performance.now();
+  (function frame(t) {
+    ctx.clearRect(0, 0, c.width, c.height);
+    pieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+      ctx.fillStyle = p.col; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+    if (t - t0 < duration) requestAnimationFrame(frame);
+    else ctx.clearRect(0, 0, c.width, c.height);
+  })(t0);
+}
+
+/* ── Soplar la vela ── */
+document.getElementById('blowBtn').addEventListener('click', e => {
+  document.getElementById('flame').textContent = '💨';
+  document.getElementById('cake').classList.add('blown');
+  document.getElementById('candleText').textContent = '¡Que se cumpla todo lo que deseaste! ✨';
+  e.currentTarget.hidden = true;
+  confetti(4500);
+});
+
+/* ── Video de intro ── */
+const intro = document.getElementById('intro');
+const vid = document.getElementById('introVideo');
+const bar = document.getElementById('introBar');
+const soundBtn = document.getElementById('soundBtn');
+const skipBtn = document.getElementById('skipBtn');
+const playBtn = document.getElementById('playBtn');
+let closed = false;
+
+function closeIntro() {
+  if (closed) return;
+  closed = true;
+  vid.pause();
+  intro.classList.add('hide');
+  document.body.classList.remove('locked');
+  document.body.classList.add('revealed');
+  window.scrollTo(0, 0);
+  setTimeout(() => intro.remove(), 900);
+  confetti(4000);
+}
+
+vid.addEventListener('ended', closeIntro);
+vid.addEventListener('error', closeIntro);          // si no existe intro.mp4, pasa directo a la página
+skipBtn.addEventListener('click', closeIntro);
+vid.addEventListener('timeupdate', () => {
+  if (vid.duration) bar.style.width = (vid.currentTime / vid.duration * 100) + '%';
+});
+
+soundBtn.addEventListener('click', () => {
+  vid.muted = false;
+  soundBtn.hidden = true;
+  vid.play();
+});
+
+playBtn.addEventListener('click', () => {
+  vid.muted = false;
+  soundBtn.hidden = true;
+  playBtn.hidden = true;
+  vid.play();
+});
+
+// Si el navegador bloquea el autoplay, se muestra un botón grande para iniciar
+const started = vid.play();
+if (started && started.catch) started.catch(() => { playBtn.hidden = false; });
+
+// Si el video tarda demasiado en cargar, no dejamos esperando
+setTimeout(() => { if (!closed && vid.readyState < 2) closeIntro(); }, 8000);
+</script>
+
+</body>
+</html>

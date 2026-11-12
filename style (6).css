@@ -1,0 +1,286 @@
+/* =====================================================
+   FELICITACIÓN DE CUMPLEAÑOS
+   Paleta: azul noche · amarillo sol · coral · menta
+   Fuentes: Fredoka (títulos) + Nunito (texto)
+   ===================================================== */
+
+:root {
+  --night:  #1B1464;
+  --night2: #2A1F8F;
+  --sun:    #FFC53D;
+  --coral:  #FF5C7A;
+  --mint:   #4FD6B5;
+  --violet: #7C5CFF;
+  --paper:  #FFFDF7;
+  --ink:    #241A5E;
+  --soft:   #5B5490;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+body.locked { overflow: hidden; height: 100vh; }
+
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+
+/* ══════════════ VIDEO DE INTRO ══════════════ */
+.intro {
+  position: fixed; inset: 0; z-index: 100;
+  background: #000;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .8s ease;
+}
+.intro.hide { opacity: 0; pointer-events: none; }
+
+.intro video { width: 100%; height: 100%; object-fit: contain; background: #000; }
+
+.intro-btn {
+  position: absolute;
+  top: max(1rem, env(safe-area-inset-top));
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .9rem;
+  color: #fff; background: rgba(0,0,0,.55);
+  border: 1.5px solid rgba(255,255,255,.5);
+  padding: .55rem 1rem; border-radius: 100px; cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.intro-btn:hover { background: rgba(0,0,0,.75); }
+.intro-sound { left: 1rem; }
+.intro-skip  { right: 1rem; }
+
+.intro-play {
+  position: absolute;
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.2rem;
+  color: var(--night); background: var(--sun);
+  border: none; padding: 1rem 2rem; border-radius: 100px; cursor: pointer;
+  box-shadow: 0 8px 30px rgba(255,197,61,.5);
+}
+
+.intro-bar {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+  background: rgba(255,255,255,.2);
+}
+.intro-bar span { display: block; height: 100%; width: 0; background: var(--sun); }
+
+#confetti {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 90;
+}
+
+/* ══════════════ PORTADA ══════════════ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  background: radial-gradient(ellipse at 50% 30%, var(--night2) 0%, var(--night) 70%);
+  color: #fff;
+  text-align: center;
+  display: flex; align-items: center; justify-content: center;
+  padding: 7rem 1.5rem 5rem;
+  overflow: hidden;
+}
+
+/* Banderines */
+.bunting {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-around;
+  height: 70px; overflow: hidden;
+}
+.bunting::before {
+  content: ''; position: absolute; top: 8px; left: 0; right: 0;
+  height: 3px; background: rgba(255,255,255,.35);
+}
+.bunting span {
+  width: 0; height: 0; margin-top: 8px; flex: none;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-top: 48px solid var(--coral);
+}
+.bunting span:nth-child(4n+2) { border-top-color: var(--sun); }
+.bunting span:nth-child(4n+3) { border-top-color: var(--mint); }
+.bunting span:nth-child(4n)   { border-top-color: var(--violet); }
+
+.hero-inner { position: relative; z-index: 2; max-width: 760px; }
+
+.hero-lead {
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  font-size: clamp(1.6rem, 6vw, 2.6rem);
+  color: #fff;
+  margin-bottom: .4rem;
+}
+
+.hero-name {
+  font-family: 'Fredoka', sans-serif; font-weight: 700;
+  font-size: clamp(3.4rem, 15vw, 8rem);
+  line-height: .95;
+  color: var(--sun);
+  text-shadow: 0 5px 0 rgba(0,0,0,.25);
+  word-break: break-word;
+}
+
+/* El número de la edad es el elemento protagonista */
+.age {
+  display: inline-flex; align-items: center; gap: 1rem;
+  margin: 1.6rem 0 2.2rem;
+}
+.age-num {
+  font-family: 'Fredoka', sans-serif; font-weight: 700;
+  font-size: clamp(6rem, 26vw, 13rem);
+  line-height: .8;
+  color: var(--coral);
+  -webkit-text-stroke: 4px #fff;
+  paint-order: stroke fill;
+  text-shadow: 8px 8px 0 var(--violet);
+}
+.age-txt {
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  text-align: left; line-height: 1.2;
+  color: #fff;
+}
+
+body.revealed .age-num { animation: pop .7s cubic-bezier(.2,1.6,.4,1) both; }
+@keyframes pop {
+  from { transform: scale(.3) rotate(-12deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* Globos y stickers */
+.float {
+  position: absolute; z-index: 1;
+  font-size: 2.6rem;
+  animation: bob 4s ease-in-out infinite;
+}
+.f1 { top: 18%; left: 7%;  animation-delay: 0s; }
+.f2 { top: 30%; right: 8%; font-size: 3rem; animation-delay: .8s; }
+.f3 { bottom: 16%; left: 9%; animation-delay: 1.6s; }
+.f4 { bottom: 24%; right: 7%; animation-delay: .4s; }
+.f5 { top: 55%; left: 3%; font-size: 2rem; animation-delay: 1.2s; }
+@keyframes bob {
+  0%,100% { transform: translateY(0) rotate(-6deg); }
+  50%     { transform: translateY(-14px) rotate(6deg); }
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.1rem;
+  padding: .95rem 2.2rem; border-radius: 100px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-sun { background: var(--sun); color: var(--night); box-shadow: 0 6px 24px rgba(255,197,61,.45); }
+
+/* ══════════════ CARTA ══════════════ */
+.message { padding: 5rem 1.5rem 3rem; background: var(--paper); }
+
+.letter {
+  max-width: 640px; margin: 0 auto;
+  background: #fff;
+  border-top: 10px solid var(--coral);
+  border-radius: 8px;
+  padding: 2.6rem 2.2rem 2.4rem;
+  box-shadow: 0 12px 0 rgba(27,20,100,.1);
+  transform: rotate(-1deg);
+}
+.letter h2 {
+  font-family: 'Fredoka', sans-serif; font-weight: 700;
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  color: var(--night);
+  margin-bottom: 1.2rem;
+}
+.letter p {
+  font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+  line-height: 1.75;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.letter .sign {
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  color: var(--coral);
+  white-space: pre-line;
+  margin: 1.6rem 0 0;
+}
+
+/* ══════════════ DESEOS ══════════════ */
+.wishes { padding: 3rem 1.5rem 4rem; text-align: center; }
+.wishes h2 {
+  font-family: 'Fredoka', sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--night);
+  margin-bottom: 2rem;
+}
+
+.wish-strip {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: var(--sun);
+  border-radius: 24px;
+  box-shadow: 0 10px 0 rgba(27,20,100,.12);
+}
+.wish { padding: 2rem 1rem; }
+.wish + .wish { border-left: 3px dashed rgba(27,20,100,.35); }
+.wish span { display: block; font-size: 2.6rem; margin-bottom: .5rem; }
+.wish p {
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  font-size: 1.3rem; line-height: 1.3; color: var(--night);
+}
+
+/* ══════════════ VELA ══════════════ */
+.candle {
+  background: var(--night);
+  color: #fff;
+  text-align: center;
+  padding: 4.5rem 1.5rem;
+}
+.cake { position: relative; display: inline-block; margin-bottom: 1rem; }
+.cake-emoji { font-size: 6rem; display: block; line-height: 1; }
+.flame {
+  position: absolute; top: -1.2rem; left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.2rem;
+  animation: flicker 1s ease-in-out infinite alternate;
+}
+.cake.blown .flame { animation: none; opacity: .8; }
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1) rotate(-4deg); }
+  to   { transform: translateX(-50%) scale(1.15) rotate(4deg); }
+}
+.candle-text {
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  color: var(--sun);
+  margin-bottom: 1.6rem;
+}
+
+.foot {
+  background: #0F0B45; color: rgba(255,255,255,.7);
+  text-align: center; padding: 1.6rem 1rem;
+  font-family: 'Fredoka', sans-serif; font-size: 1.1rem;
+}
+
+/* ══════════════ RESPONSIVE ══════════════ */
+@media (max-width: 720px) {
+  .wish-strip { grid-template-columns: 1fr; }
+  .wish + .wish {
+    border-left: none;
+    border-top: 3px dashed rgba(27,20,100,.35);
+  }
+  .letter { padding: 2rem 1.4rem; }
+  .f5 { display: none; }
+  .age { flex-direction: column; gap: .6rem; }
+  .age-txt { text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float, .flame, body.revealed .age-num { animation: none; }
+  .letter { transform: none; }
+  html { scroll-behavior: auto; }
+}
