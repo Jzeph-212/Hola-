@@ -34,8 +34,81 @@
      ═══════════════════════════════════════════ -->
 <main>
 
+  <!-- ═══════════════════════════════════════════
+       GATITOS CON EL PASTEL (aparece justo después del video)
+       Nota: el nombre "Reyna" del pastel está escrito dentro del dibujo (SVG).
+       Si cambias el nombre, busca "Reyna" en este bloque y cámbialo.
+       ═══════════════════════════════════════════ -->
+  <section class="hero-gatitos">
+<svg viewBox="0 0 400 300" role="img" aria-labelledby="hg-t">
+ <title id="hg-t">Seis gatitos juntos sostienen un pastel que dice ¡Feliz Cumpleaños Reyna!</title>
+ <defs>
+  <filter id="st" x="-3%" y="-3%" width="106%" height="108%" color-interpolation-filters="sRGB">
+   <feMorphology in="SourceAlpha" operator="dilate" radius="5" result="d"/>
+   <feFlood flood-color="#fff"/><feComposite in2="d" operator="in" result="w"/>
+   <feMerge><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <symbol id="kt" viewBox="0 0 80 130" overflow="visible">
+   <ellipse cx="40" cy="110" rx="27" ry="60" style="fill:var(--fur)"/>
+   <path d="M12 28L16 2L36 16ZM68 28L64 2L44 16Z" style="fill:var(--ear,var(--fur))"/>
+   <path d="M17 21L18 9L28 15ZM63 21L62 9L52 15Z" style="fill:var(--ein,#f3a6b4)"/>
+   <circle cx="40" cy="42" r="30" style="fill:var(--fur)"/>
+   <ellipse cx="40" cy="46" rx="22" ry="22" style="fill:var(--mask,var(--fur))"/>
+   <g style="opacity:var(--po,0)"><ellipse cx="24" cy="30" rx="11" ry="10" fill="#d9833a"/><ellipse cx="58" cy="34" rx="8" ry="7" fill="#f1d2a0"/></g>
+   <g style="opacity:var(--so,0)" stroke="#2e2118" stroke-width="2.8" stroke-linecap="round" fill="none"><path d="M40 14V26M30 16L33 26M50 16L47 26M12 44H22M13 52H22M68 44H58M67 52H58"/></g>
+   <ellipse cx="40" cy="56" rx="14" ry="10" style="fill:var(--muz,var(--fur))"/>
+   <ellipse cx="18" cy="55" rx="5" ry="3" fill="#ff8aa8" opacity=".35"/><ellipse cx="62" cy="55" rx="5" ry="3" fill="#ff8aa8" opacity=".35"/>
+   <ellipse cx="28" cy="44" rx="6.2" ry="7.2" style="fill:var(--eye)"/><ellipse cx="52" cy="44" rx="6.2" ry="7.2" style="fill:var(--eye)"/>
+   <ellipse cx="28" cy="45" rx="3" ry="5.6" fill="#111"/><ellipse cx="52" cy="45" rx="3" ry="5.6" fill="#111"/>
+   <circle cx="26.5" cy="41.5" r="1.8" fill="#fff"/><circle cx="50.5" cy="41.5" r="1.8" fill="#fff"/>
+   <path d="M36.5 53H43.5L40 57.5Z" style="fill:var(--nose)"/>
+   <path d="M40 57.5V60M40 60Q36 63 33 60M40 60Q44 63 47 60" stroke="#0008" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+   <path d="M26 56L6 52M26 59L7 62M54 56L74 52M54 59L73 62" stroke="#fff" stroke-opacity=".9" stroke-width="1"/>
+  </symbol>
+  <g id="pw"><ellipse cx="20" cy="0" rx="10" ry="8" style="fill:var(--paw,var(--fur))" stroke="#0002"/><ellipse cx="60" cy="0" rx="10" ry="8" style="fill:var(--paw,var(--fur))" stroke="#0002"/></g>
+ </defs>
+
+ <g filter="url(#st)"><g class="all">
+  <!-- gatitos: negro, blanco y gris, carey, gris azulado, atigrado café, siamés -->
+  <g transform="translate(4,74) scale(.9) rotate(-6 40 120)"><g class="kb" style="--i:0"><use href="#kt" class="c1" width="80" height="130"/></g></g>
+  <g transform="translate(66.4,56) scale(.9) rotate(-3 40 120)"><g class="kb" style="--i:1"><use href="#kt" class="c2" width="80" height="130"/></g></g>
+  <g transform="translate(128.8,42) scale(.9) rotate(-1 40 120)"><g class="kb" style="--i:2"><use href="#kt" class="c3" width="80" height="130"/></g></g>
+  <g transform="translate(191.2,42) scale(.9) rotate(1 40 120)"><g class="kb" style="--i:3"><use href="#kt" class="c4" width="80" height="130"/></g></g>
+  <g transform="translate(253.6,56) scale(.9) rotate(3 40 120)"><g class="kb" style="--i:4"><use href="#kt" class="c5" width="80" height="130"/></g></g>
+  <g transform="translate(316,74) scale(.9) rotate(6 40 120)"><g class="kb" style="--i:5"><use href="#kt" class="c6" width="80" height="130"/></g></g>
+
+  <!-- pastel -->
+  <ellipse cx="200" cy="262" rx="190" ry="17" fill="#fff" stroke="#e8c9d6"/>
+  <rect x="28" y="160" width="344" height="100" rx="18" fill="#ffd1e3"/>
+  <rect x="28" y="228" width="344" height="32" rx="12" fill="#f78fb3"/>
+  <ellipse cx="200" cy="162" rx="172" ry="15" fill="#fff5fa"/>
+  <g fill="#fff"><circle cx="52" cy="244" r="4"/><circle cx="96" cy="246" r="4"/><circle cx="304" cy="246" r="4"/><circle cx="348" cy="244" r="4"/></g>
+  <g fill="#ffd34d"><circle cx="74" cy="245" r="3.5"/><circle cx="326" cy="245" r="3.5"/></g>
+  <rect x="62" y="176" width="276" height="56" rx="10" fill="#fff" stroke="#f06292" stroke-width="3"/>
+  <g font-family="Trebuchet MS,Segoe UI,sans-serif" font-weight="800" text-anchor="middle" fill="#c2185b">
+   <text x="200" y="202" font-size="25" textLength="248" lengthAdjust="spacingAndGlyphs">¡Feliz Cumpleaños</text>
+   <text x="200" y="226" font-size="25">Reyna!</text>
+  </g>
+  <!-- velas -->
+  <g>
+   <rect x="127" y="140" width="6" height="22" fill="#8fd3ff"/><rect x="197" y="140" width="6" height="22" fill="#ffd34d"/><rect x="267" y="140" width="6" height="22" fill="#b794f4"/>
+   <g fill="#ffb02e"><ellipse class="fl" cx="130" cy="131" rx="5" ry="8"/><ellipse class="fl" cx="200" cy="131" rx="5" ry="8"/><ellipse class="fl" cx="270" cy="131" rx="5" ry="8"/></g>
+   <g fill="#fff3b0"><ellipse cx="130" cy="133" rx="2" ry="4"/><ellipse cx="200" cy="133" rx="2" ry="4"/><ellipse cx="270" cy="133" rx="2" ry="4"/></g>
+  </g>
+  <!-- patitas agarrando el pastel -->
+  <g transform="translate(4,162) scale(.9)"><use href="#pw" class="c1"/></g>
+  <g transform="translate(66.4,162) scale(.9)"><use href="#pw" class="c2"/></g>
+  <g transform="translate(128.8,162) scale(.9)"><use href="#pw" class="c3"/></g>
+  <g transform="translate(191.2,162) scale(.9)"><use href="#pw" class="c4"/></g>
+  <g transform="translate(253.6,162) scale(.9)"><use href="#pw" class="c5"/></g>
+  <g transform="translate(316,162) scale(.9)"><use href="#pw" class="c6"/></g>
+ </g></g>
+</svg>
+    <a class="gatitos-next" href="#inicio">Sigue bajando ↓</a>
+  </section>
+
   <!-- Portada -->
-  <header class="hero">
+  <header class="hero" id="inicio">
     <div class="bunting" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span><span></span><span></span>
