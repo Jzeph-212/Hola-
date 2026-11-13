@@ -1,4 +1,4 @@
-/* =====================================================
+//* =====================================================
    FELICITACIÓN DE CUMPLEAÑOS
    Paleta: azul noche · amarillo sol · coral · menta
    Fuentes: Fredoka (títulos) + Nunito (texto)
@@ -283,4 +283,59 @@ body.revealed .age-num { animation: pop .7s cubic-bezier(.2,1.6,.4,1) both; }
   .float, .flame, body.revealed .age-num { animation: none; }
   .letter { transform: none; }
   html { scroll-behavior: auto; }
+}
+
+/* ══════════════ GATITOS CON EL PASTEL ══════════════ */
+.hero-gatitos {
+  position: relative;
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1.2rem;
+  padding: 2rem 1rem 3rem;
+  background: linear-gradient(#ffe3ec, #fff1e2);
+}
+.hero-gatitos svg {
+  width: 100%; max-width: 520px; height: auto; display: block;
+  filter: drop-shadow(0 8px 10px rgba(130,40,80,.28));
+}
+
+/* Los gatitos "aparecen" cuando termina el video (o al saltarlo) */
+.hero-gatitos .all {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  animation: hg-pop .9s cubic-bezier(.3,1.5,.5,1) both;
+  animation-play-state: paused;
+}
+body.revealed .hero-gatitos .all { animation-play-state: running; }
+
+.hero-gatitos .kb {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  animation: hg-sway 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -.45s);
+}
+.hero-gatitos .fl {
+  transform-box: fill-box; transform-origin: center bottom;
+  animation: hg-fl .25s ease-in-out infinite alternate;
+}
+@keyframes hg-pop  { from { opacity: 0; transform: scale(.55); } to { opacity: 1; transform: none; } }
+@keyframes hg-sway { 0%,100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg) translateY(-3px); } }
+@keyframes hg-fl   { from { transform: scale(1,.85); } to { transform: scale(1.15,1.2); } }
+
+/* Colores de cada gatito */
+.hero-gatitos .c1 { --fur:#1b1b22; --eye:#9be37a; --nose:#4a3038; --ein:#6a4452; }
+.hero-gatitos .c2 { --fur:#9aa0a8; --muz:#fff; --paw:#fff; --eye:#e0c96a; --nose:#f29bb0; }
+.hero-gatitos .c3 { --fur:#2a2320; --po:1; --paw:#1c1715; --eye:#f0b81c; --nose:#c98a8a; }
+.hero-gatitos .c4 { --fur:#7d8794; --muz:#6a737f; --paw:#6a737f; --eye:#eccb55; --nose:#454a52; }
+.hero-gatitos .c5 { --fur:#8a7050; --so:.9; --muz:#f3ece2; --eye:#bfcc48; --nose:#c9856a; --ein:#d9a08a; }
+.hero-gatitos .c6 { --fur:#e8d5bd; --mask:#5b4033; --muz:#5b4033; --ear:#5b4033; --eye:#8fc7ff; --nose:#2e211c; }
+
+.gatitos-next {
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.1rem;
+  color: #c2185b; text-decoration: none;
+  animation: hg-bounce 1.6s ease-in-out infinite;
+}
+@keyframes hg-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gatitos .all, .hero-gatitos .kb, .hero-gatitos .fl, .gatitos-next { animation: none; }
 }
