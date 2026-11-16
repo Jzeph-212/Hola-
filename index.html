@@ -6,7 +6,7 @@
   <title>¡Feliz cumpleaños!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Great+Vibes&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Caveat:wght@500;700&family=Great+Vibes&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="locked">
@@ -209,7 +209,7 @@
   </section>
   </section><!-- /opening -->
 
-  <!-- Portada -->
+  <!-- Portada cálida (antes azul) -->
   <header class="hero" id="inicio">
     <div class="bunting" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -222,10 +222,11 @@
       <p class="hero-lead">¡Feliz cumpleaños!</p>
       <h1 class="hero-name" data-fill="nombre">NOMBRE</h1>
       <div class="age" aria-label="años que cumple">
-        <span class="age-num" data-fill="edad">10</span>
-        <span class="age-txt">años de ser<br/>increíble</span>
+        <span class="age-num" data-fill="edad">30</span>
+        <span class="age-txt">años<br/>¡y contando!</span>
       </div>
-      <a class="btn btn-sun" href="#mensaje">Ver mi mensaje</a>
+      <p class="hero-msg" data-fill="mensajeHero">¡Hoy cumples un año más de vida y de ser una persona maravillosa!</p>
+      <a class="btn btn-sun" href="#mensaje">Abrir mi cartita 💌</a>
     </div>
 
     <span class="float f1" aria-hidden="true">🎈</span>
@@ -233,31 +234,152 @@
     <span class="float f3" aria-hidden="true">🎁</span>
     <span class="float f4" aria-hidden="true">🎈</span>
     <span class="float f5" aria-hidden="true">🎉</span>
+    <img class="stk m-hide" src="stickers/chihuahua-verde.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:5%;bottom:5.5rem;--w:120px;--r:-6deg;--d:4.2s"/>
+    <img class="stk m-hide" src="stickers/pug.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:5%;bottom:5.5rem;--w:112px;--r:6deg;--d:4.8s;--dl:.6s"/>
   </header>
 
-  <!-- Carta de felicitación -->
+  <!-- ═══════════════════════════════════════════
+       CARTITA: el mensaje solo se lee al tocar el sobre
+       ═══════════════════════════════════════════ -->
   <section class="message" id="mensaje">
-    <article class="letter">
-      <h2 data-fill="saludo">Querido NOMBRE,</h2>
-      <div id="letterBody"></div>
-      <p class="sign" data-fill="firma">Con mucho cariño</p>
-    </article>
+    <img class="stk" src="stickers/hamster-pastel.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:3%;top:7%;--w:118px;--r:-8deg;--d:4.6s"/>
+    <img class="stk" src="stickers/rata-trompeta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:3%;top:8%;--w:124px;--r:8deg;--d:5s;--dl:.5s"/>
+    <img class="stk m-hide" src="stickers/gatito-pastel.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:6%;top:44%;--w:96px;--r:6deg;--d:4.2s;--dl:.9s"/>
+    <img class="stk m-hide" src="stickers/cheems.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:5%;top:46%;--w:118px;--r:-6deg;--d:4.9s;--dl:.3s"/>
+    <img class="stk stand" src="stickers/perrito-azul.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:2%;bottom:0;--w:128px;--r:0deg;--d:3.8s"/>
+    <img class="stk stand" src="stickers/gato-trompeta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:2%;bottom:0;--w:132px;--r:0deg;--d:4.2s;--dl:.7s"/>
+
+    <div class="mail-stage" id="mailStage">
+      <div class="env-area" id="envArea">
+        <h2 class="mail-title">Tengo una cartita para ti</h2>
+        <button class="envelope" id="envelopeBtn" type="button" aria-expanded="false" aria-controls="letterWrap" aria-label="Abrir la cartita para leer el mensaje">
+          <span class="env-body">
+            <span class="env-back"></span>
+            <span class="env-paper"></span>
+            <span class="env-front"></span>
+            <span class="env-flap"></span>
+            <span class="env-seal" aria-hidden="true">♥</span>
+          </span>
+        </button>
+        <p class="env-hint">Toca la cartita para leer tu mensaje 💌</p>
+      </div>
+
+      <div class="letter-wrap" id="letterWrap" hidden>
+        <article class="letter" id="letter" tabindex="-1">
+          <h2 id="letterGreeting"></h2>
+          <div id="letterBody"></div>
+          <p class="sign" id="letterSign"></p>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- Deseos -->
   <section class="wishes">
     <h2>Mis deseos para ti</h2>
     <div class="wish-strip" id="wishStrip"></div>
+    <img class="stk stand" src="stickers/chihuahua-sonrisa.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:4%;bottom:0;--w:118px;--r:0deg;--d:4s"/>
+    <img class="stk stand" src="stickers/chihuahua-pompon.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:4%;bottom:0;--w:140px;--r:0deg;--d:4.6s;--dl:.5s"/>
   </section>
 
-  <!-- Soplar la vela -->
-  <section class="candle">
-    <div class="cake" id="cake" aria-hidden="true">
-      <span class="flame" id="flame">🔥</span>
-      <span class="cake-emoji">🎂</span>
+  <!-- ═══════════════════════════════════════════
+       SORPRESAS: vela + cupones
+       ═══════════════════════════════════════════ -->
+  <section class="surprises" id="sorpresas">
+    <div class="sur-head">
+      <h2>Sorpresas para ti</h2>
+      <p>Pide un deseo… y mira lo que te tengo guardado</p>
     </div>
-    <p class="candle-text" id="candleText">Pide un deseo en silencio…</p>
-    <button class="btn btn-sun" id="blowBtn" type="button">🕯️ Soplar la vela</button>
+
+    <div class="sur-grid">
+
+      <!-- Vela -->
+      <div class="candle-card">
+        <div class="cake-wrap" id="cakeWrap">
+          <div class="halo" aria-hidden="true"></div>
+          <img class="pop-stk left"  src="stickers/hurones-pastel.webp" alt="" aria-hidden="true" style="--r:-8deg"/>
+          <img class="pop-stk right" src="stickers/hamster-vela.webp"   alt="" aria-hidden="true" style="--r:8deg"/>
+
+          <svg class="cake-svg" viewBox="0 0 240 230" role="img" aria-label="Pastel de cumpleaños con tres velas">
+            <ellipse cx="120" cy="208" rx="106" ry="13" fill="#F6E6C8" stroke="#C9922F" stroke-width="2"/>
+            <!-- piso inferior -->
+            <rect x="26" y="142" width="188" height="62" rx="14" fill="#E98FA3"/>
+            <rect x="26" y="142" width="188" height="18" rx="9" fill="#FFF4E6"/>
+            <g fill="#FFF4E6"><circle cx="46" cy="160" r="9"/><circle cx="76" cy="163" r="9"/><circle cx="106" cy="160" r="9"/><circle cx="136" cy="164" r="9"/><circle cx="166" cy="160" r="9"/><circle cx="196" cy="162" r="9"/></g>
+            <g fill="#F2C75C"><circle cx="52" cy="184" r="4"/><circle cx="86" cy="191" r="4"/><circle cx="120" cy="184" r="4"/><circle cx="154" cy="191" r="4"/><circle cx="188" cy="184" r="4"/></g>
+            <!-- piso superior -->
+            <rect x="58" y="96" width="124" height="48" rx="12" fill="#F7C9A9"/>
+            <rect x="58" y="96" width="124" height="16" rx="8" fill="#FFF4E6"/>
+            <g fill="#FFF4E6"><circle cx="74" cy="113" r="8"/><circle cx="100" cy="116" r="8"/><circle cx="126" cy="113" r="8"/><circle cx="152" cy="116" r="8"/><circle cx="170" cy="112" r="7"/></g>
+            <!-- velas -->
+            <rect x="86" y="64" width="8" height="34" rx="2" fill="#E7A598"/>
+            <rect x="116" y="60" width="8" height="38" rx="2" fill="#F2C75C"/>
+            <rect x="146" y="64" width="8" height="34" rx="2" fill="#F6E6C8" stroke="#E7A598"/>
+            <!-- llamas -->
+            <g class="flame" style="--dl:0s"><ellipse cx="90" cy="54" rx="6" ry="10" fill="#FFB02E"/><ellipse cx="90" cy="57" rx="2.6" ry="5" fill="#FFF3B0"/></g>
+            <g class="flame" style="--dl:.12s"><ellipse cx="120" cy="50" rx="6" ry="10" fill="#FFB02E"/><ellipse cx="120" cy="53" rx="2.6" ry="5" fill="#FFF3B0"/></g>
+            <g class="flame" style="--dl:.24s"><ellipse cx="150" cy="54" rx="6" ry="10" fill="#FFB02E"/><ellipse cx="150" cy="57" rx="2.6" ry="5" fill="#FFF3B0"/></g>
+            <!-- humo al apagarse -->
+            <g fill="#fff">
+              <circle class="puff" cx="90"  cy="50" r="4" style="--dl:0s;--dx:-6px"/>
+              <circle class="puff" cx="90"  cy="50" r="3" style="--dl:.25s;--dx:6px"/>
+              <circle class="puff" cx="120" cy="46" r="4" style="--dl:.08s;--dx:4px"/>
+              <circle class="puff" cx="120" cy="46" r="3" style="--dl:.33s;--dx:-5px"/>
+              <circle class="puff" cx="150" cy="50" r="4" style="--dl:.16s;--dx:6px"/>
+              <circle class="puff" cx="150" cy="50" r="3" style="--dl:.41s;--dx:-6px"/>
+            </g>
+            <!-- estrellitas -->
+            <g transform="translate(26 70) scale(1.3)"><use href="#star5" class="tw" fill="none" stroke="#F2C75C" stroke-width="1.4" style="--dl:0s"/></g>
+            <g transform="translate(214 62) scale(1.5)"><use href="#star5" class="tw" fill="none" stroke="#F2C75C" stroke-width="1.4" style="--dl:.7s"/></g>
+            <g transform="translate(40 30)"><use href="#star5" class="tw" fill="none" stroke="#F6E6C8" stroke-width="1.4" style="--dl:1.2s"/></g>
+            <g transform="translate(200 24)"><use href="#star5" class="tw" fill="none" stroke="#F6E6C8" stroke-width="1.4" style="--dl:.4s"/></g>
+          </svg>
+
+          <span class="spark" style="--a:0deg;--i:0"   aria-hidden="true">✨</span>
+          <span class="spark" style="--a:45deg;--i:1"  aria-hidden="true">⭐</span>
+          <span class="spark" style="--a:90deg;--i:2"  aria-hidden="true">✨</span>
+          <span class="spark" style="--a:135deg;--i:3" aria-hidden="true">🎉</span>
+          <span class="spark" style="--a:180deg;--i:4" aria-hidden="true">✨</span>
+          <span class="spark" style="--a:225deg;--i:5" aria-hidden="true">⭐</span>
+          <span class="spark" style="--a:270deg;--i:6" aria-hidden="true">✨</span>
+          <span class="spark" style="--a:315deg;--i:7" aria-hidden="true">🎉</span>
+        </div>
+
+        <p class="candle-text" id="candleText">Pide un deseo en silencio…</p>
+        <div class="wish-reveal" id="wishReveal" aria-live="polite" hidden>
+          <p class="wish-main" id="wishMain"></p>
+          <p class="wish-sub" id="wishSub"></p>
+        </div>
+        <button class="btn btn-sun" id="blowBtn" type="button">🕯️ Soplar la vela</button>
+        <button class="link-btn" id="relightBtn" type="button" hidden>🔥 Encender de nuevo</button>
+      </div>
+
+      <!-- Cupones -->
+      <div class="coupons" aria-label="Cupones">
+        <article class="coupon coupon-sweet" id="couponSweet">
+          <img class="coupon-stk" src="stickers/gato-cupcake.webp" alt="" aria-hidden="true" loading="lazy"/>
+          <div>
+            <h3>Cupón de dulces</h3>
+            <p class="sub">Cámbialo por el postre o la golosina que se te antoje</p>
+            <div class="pips" id="pipsSweet" aria-hidden="true"></div>
+            <p class="left-count" id="leftSweet"></p>
+          </div>
+          <div class="coupon-action" id="actionSweet"></div>
+        </article>
+
+        <article class="coupon coupon-hug" id="couponHug">
+          <img class="coupon-stk" src="stickers/gato-regalo.webp" alt="" aria-hidden="true" loading="lazy" style="animation-delay:.8s"/>
+          <div>
+            <h3>Cupón de abrazos</h3>
+            <p class="sub">Un abrazo de los buenos, cuando más lo necesites</p>
+            <div class="pips" id="pipsHug" aria-hidden="true"></div>
+            <p class="left-count" id="leftHug"></p>
+          </div>
+          <div class="coupon-action" id="actionHug"></div>
+        </article>
+      </div>
+
+    </div>
   </section>
 
   <footer class="foot">
@@ -266,71 +388,118 @@
 </main>
 
 
+<!-- Ficha de canje (dulces / abrazos) -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card sweet" id="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-x" type="button" data-close aria-label="Cerrar">✕</button>
+    <div class="modal-deco" id="modalDeco" aria-hidden="true"></div>
+
+    <div class="step" data-step="ask">
+      <h3 id="modalTitle">¿Qué deseas canjear?</h3>
+      <p>Cuéntame qué se te antoja: un helado, un chocolate, una torta…</p>
+      <label class="sr" for="wishInput">¿Qué deseas canjear?</label>
+      <input id="wishInput" type="text" maxlength="140" autocomplete="off" placeholder="Escribe aquí lo que quieres 🍬"/>
+      <p class="err" id="askErr" hidden>Escribe primero qué te gustaría canjear 🍭</p>
+      <div class="modal-btns">
+        <button class="btn btn-candy" id="askNext" type="button">Continuar</button>
+      </div>
+    </div>
+
+    <div class="step" data-step="confirm" hidden>
+      <h3 id="confirmTitle">¿Confirmas tu canje?</h3>
+      <p id="confirmLead"></p>
+      <blockquote id="confirmText" hidden></blockquote>
+      <div class="modal-btns">
+        <button class="btn btn-candy" id="confirmYes" type="button">Sí, canjear</button>
+        <button class="btn btn-soft" id="confirmBack" type="button">Cambiar</button>
+      </div>
+    </div>
+
+    <div class="step" data-step="done" hidden>
+      <h3>¡Listo! 🎉</h3>
+      <p>Se abrió WhatsApp con tu mensaje ya escrito. Solo toca <b>Enviar</b> para que me llegue 💌</p>
+      <div class="modal-btns">
+        <a class="btn btn-wa" id="waLink" href="#" target="_blank" rel="noopener">💬 Abrir WhatsApp de nuevo</a>
+        <button class="btn btn-soft" type="button" data-close>Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ═══════════════════════════════════════════
-     3) AQUÍ CAMBIAS LOS TEXTOS DE LA FELICITACIÓN
-        Solo edita lo que está entre comillas.
+     AQUÍ CAMBIAS LOS TEXTOS Y LOS DATOS
+     Solo edita lo que está entre comillas.
      ═══════════════════════════════════════════ -->
 <script>
 const CONFIG = {
-  nombre: "Reyna",                     // Nombre de quien cumple años
-  edad:   "30",                        // Años que cumple
-  cumple: "17 de noviembre",        // Fecha que aparece en la cinta dorada
-  saludo: "Querida Reyna,",            // Cómo empieza la carta
+  nombre: "Reyna",                       // Nombre de quien cumple años
+  edad:   "30",                          // Años que cumple
+  cumple: "17 de noviembre",             // Fecha que aparece en la cinta dorada
 
-  // Cada línea entre comillas es un párrafo de la carta
+  // Mensaje de la portada
+  mensajeHero: "¡Hoy cumples un año más de vida y de ser una persona maravillosa!",
+
+  // La cartita (solo se lee al tocar el sobre). Cada línea es un párrafo.
+  saludo: "Querida Reyna,",
   mensaje: [
     "Hoy el mundo celebra algo muy bonito: que tú llegaste a él. Treinta años de risas, de aprendizajes y de caminos recorridos con una fuerza que inspira.",
     "Eres de esas personas que dejan luz por donde pasan. Tu forma de ser, tu corazón noble y tu sonrisa hacen mejores los días de quienes te rodean. Gracias por ser como eres.",
     "Que esta nueva etapa te abrace con salud, paz y mucha alegría. Que cada sueño que guardas en el corazón encuentre su momento de florecer, y que nunca te falte el amor del bueno.",
     "Estos treinta son solo el comienzo de todo lo hermoso que viene. Y como tu nombre lo dice, hoy te toca ser la reina del día 👑 ¡Feliz cumpleaños, Reyna!"
   ],
-
-  firma: "Con mucho cariño,\nJesús",   // \n hace un salto de línea
+  firma: "Con mucho cariño,\nJesús",       // \n hace un salto de línea
 
   // Tres deseos (ícono + texto corto)
   deseos: [
     { icono: "💛", texto: "Mucha felicidad" },
     { icono: "🌟", texto: "Sueños cumplidos" },
     { icono: "👑", texto: "Un día de reina" }
-  ]
+  ],
+
+  // Lo que aparece al soplar la vela
+  deseoVela:  "Te deseo lo mejor y espero que logres cumplir todo lo que te propongas.",
+  deseoVela2: "Que este nuevo año de vida te abrace con salud, amor y muchas razones para sonreír.",
+
+  // Cupones: a este número llegan los mensajes de WhatsApp (código de Bolivia 591, sin + ni espacios)
+  whatsapp: "59168912447",
+  cupones: { dulces: 5, abrazos: 5 }
 };
 </script>
 
 <script>
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
 /* ── Rellenar textos desde CONFIG ── */
-document.querySelectorAll('[data-fill]').forEach(el => {
-  el.textContent = CONFIG[el.dataset.fill];
+$$('[data-fill]').forEach(el => {
+  const v = CONFIG[el.dataset.fill];
+  if (v !== undefined) el.textContent = v;
 });
-CONFIG.mensaje.forEach(txt => {
-  const p = document.createElement('p');
-  p.textContent = txt;
-  document.getElementById('letterBody').appendChild(p);
-});
+document.title = '¡Feliz cumpleaños, ' + CONFIG.nombre + '!';
+
 CONFIG.deseos.forEach(d => {
   const div = document.createElement('div');
   div.className = 'wish';
   div.innerHTML = '<span aria-hidden="true"></span><p></p>';
-  div.querySelector('span').textContent = d.icono;
-  div.querySelector('p').textContent = d.texto;
-  document.getElementById('wishStrip').appendChild(div);
+  $('span', div).textContent = d.icono;
+  $('p', div).textContent = d.texto;
+  $('#wishStrip').appendChild(div);
 });
-document.title = '¡Feliz cumpleaños, ' + CONFIG.nombre + '!';
 
-/* ── Confeti ── */
+/* ── Confeti de celebración (colores cálidos) ── */
 function confetti(duration) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const c = document.getElementById('confetti'), ctx = c.getContext('2d');
+  const c = $('#confetti'), ctx = c.getContext('2d');
   c.width = innerWidth; c.height = innerHeight;
-  const colors = ['#FF5C7A', '#FFC53D', '#4FD6B5', '#7C5CFF', '#FF8A3D', '#FFFFFF'];
+  const colors = ['#F2C75C', '#E7A598', '#C9573F', '#FFF1C1', '#8A2C45', '#FFFFFF'];
   const pieces = Array.from({ length: 150 }, () => ({
     x: Math.random() * c.width,
     y: -20 - Math.random() * c.height * 0.6,
-    w: 6 + Math.random() * 6,
-    h: 9 + Math.random() * 9,
-    vx: -1.2 + Math.random() * 2.4,
-    vy: 2 + Math.random() * 3.5,
-    r: Math.random() * 6,
-    vr: -0.2 + Math.random() * 0.4,
+    w: 6 + Math.random() * 6, h: 9 + Math.random() * 9,
+    vx: -1.2 + Math.random() * 2.4, vy: 2 + Math.random() * 3.5,
+    r: Math.random() * 6, vr: -0.2 + Math.random() * 0.4,
     col: colors[Math.floor(Math.random() * colors.length)]
   }));
   const t0 = performance.now();
@@ -349,8 +518,8 @@ function confetti(duration) {
 
 /* ── Confeti dorado de la portada ── */
 const goldConfetti = (function () {
-  const sec = document.getElementById('opening');
-  const cv = document.getElementById('goldConfetti');
+  const sec = $('#opening');
+  const cv = $('#goldConfetti');
   if (!sec || !cv) return { start() {} };
   const ctx = cv.getContext('2d');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -397,7 +566,6 @@ const goldConfetti = (function () {
 
   resize();
   window.addEventListener('resize', resize);
-  // se pausa cuando la portada no se ve (ahorra batería)
   new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
     if (visible) go(); else running = false;
@@ -406,22 +574,206 @@ const goldConfetti = (function () {
   return { start() { started = true; if (reduce) draw(); go(); } };
 })();
 
+/* ── La cartita ── */
+const stage = $('#mailStage'), envBtn = $('#envelopeBtn');
+envBtn.addEventListener('click', () => {
+  if (stage.classList.contains('open')) return;
+  stage.classList.add('open');
+  envBtn.setAttribute('aria-expanded', 'true');
+
+  // La carta se arma solo ahora, al abrir el sobre
+  $('#letterGreeting').textContent = CONFIG.saludo;
+  const body = $('#letterBody');
+  CONFIG.mensaje.forEach(txt => {
+    const p = document.createElement('p');
+    p.textContent = txt;
+    body.appendChild(p);
+  });
+  $('#letterSign').textContent = CONFIG.firma;
+
+  setTimeout(() => {
+    stage.classList.add('read');
+    const wrap = $('#letterWrap');
+    wrap.hidden = false;
+    wrap.classList.add('show');
+    const sec = $('#mensaje');
+    sec.classList.add('celebrate');
+    setTimeout(() => sec.classList.remove('celebrate'), 900);
+    confetti(2800);
+    $('#letter').focus({ preventScroll: true });
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 1100);
+});
+
 /* ── Soplar la vela ── */
-document.getElementById('blowBtn').addEventListener('click', e => {
-  document.getElementById('flame').textContent = '💨';
-  document.getElementById('cake').classList.add('blown');
-  document.getElementById('candleText').textContent = '¡Que se cumpla todo lo que deseaste! ✨';
-  e.currentTarget.hidden = true;
+const cakeWrap = $('#cakeWrap'), blowBtn = $('#blowBtn'), relightBtn = $('#relightBtn');
+const candleText = $('#candleText'), wishReveal = $('#wishReveal');
+$('#wishMain').textContent = CONFIG.deseoVela;
+$('#wishSub').textContent  = CONFIG.deseoVela2;
+
+blowBtn.addEventListener('click', () => {
+  cakeWrap.classList.add('blown');
+  candleText.textContent = '¡Tu deseo va en camino! ✨';
+  wishReveal.hidden = false;
+  blowBtn.hidden = true;
+  relightBtn.hidden = false;
   confetti(4500);
+});
+relightBtn.addEventListener('click', () => {
+  cakeWrap.classList.remove('blown');
+  candleText.textContent = 'Pide un deseo en silencio…';
+  wishReveal.hidden = true;
+  relightBtn.hidden = true;
+  blowBtn.hidden = false;
+});
+
+/* ── Cupones ── */
+const KEY = 'cumple-cupones-v1';
+const MAX = { dulces: CONFIG.cupones.dulces, abrazos: CONFIG.cupones.abrazos };
+// Para volver a poner los contadores en 5 (por ejemplo, al probar): abre la página con ?reiniciar=cupones
+if (/reiniciar=cupones/.test(location.search)) { try { localStorage.removeItem(KEY); } catch (e) {} }
+
+const clamp = (n, max) => Math.max(0, Math.min(max, n));
+function loadState() {
+  try {
+    const s = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (s && Number.isInteger(s.dulces) && Number.isInteger(s.abrazos))
+      return { dulces: clamp(s.dulces, MAX.dulces), abrazos: clamp(s.abrazos, MAX.abrazos) };
+  } catch (e) {}
+  return { dulces: MAX.dulces, abrazos: MAX.abrazos };
+}
+function saveState() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+let state = loadState();
+
+const KINDS = {
+  dulces:  { pip: '🍬', pips: '#pipsSweet', left: '#leftSweet', act: '#actionSweet', card: '#couponSweet', btn: 'btn-candy', label: '🍬 Canjear cupón' },
+  abrazos: { pip: '🧡', pips: '#pipsHug',   left: '#leftHug',   act: '#actionHug',   card: '#couponHug',   btn: 'btn-hug',   label: '🤗 Canjear abrazo' }
+};
+
+function renderCoupons() {
+  for (const k in KINDS) {
+    const c = KINDS[k], n = state[k], max = MAX[k];
+    $(c.pips).innerHTML = Array.from({ length: max }, (_, i) =>
+      '<span class="pip' + (i < n ? '' : ' used') + '">' + c.pip + '</span>').join('');
+    $(c.left).textContent = n > 0
+      ? 'Te ' + (n === 1 ? 'queda ' : 'quedan ') + n + ' de ' + max
+      : 'Ya usaste todos tus cupones';
+    $(c.card).classList.toggle('is-empty', n === 0);
+    $(c.act).innerHTML = n > 0
+      ? '<button class="btn ' + c.btn + '" type="button" data-redeem="' + k + '">' + c.label + '</button>'
+      : '<span class="sold-out">🚫 Cupones agotados</span>';
+  }
+}
+renderCoupons();
+
+/* ── Ficha de canje ── */
+const modal = $('#modal'), card = $('#modalCard');
+let current = null, lastFocus = null, pendingText = '';
+
+function showStep(name) { $$('.step', card).forEach(s => { s.hidden = s.dataset.step !== name; }); }
+
+function prepareConfirm() {
+  const q = $('#confirmText');
+  if (current === 'dulces') {
+    $('#confirmTitle').textContent = '¿Confirmas tu canje?';
+    $('#confirmLead').textContent = 'Quieres canjear tu cupón de dulces por:';
+    q.textContent = pendingText; q.hidden = false;
+    $('#confirmYes').textContent = 'Sí, canjear 🍭';
+    $('#confirmBack').textContent = 'Cambiar';
+  } else {
+    $('#confirmTitle').textContent = '¿Canjear un abrazo? 🤗';
+    $('#confirmLead').textContent = 'Te llegará en cuanto yo vea tu mensaje 🧡';
+    q.hidden = true;
+    $('#confirmYes').textContent = 'Sí, quiero mi abrazo';
+    $('#confirmBack').textContent = 'Ahora no';
+  }
+}
+
+function openModal(kind, opener) {
+  current = kind; lastFocus = opener; pendingText = '';
+  card.classList.remove('sweet', 'hug');
+  card.classList.add(kind === 'dulces' ? 'sweet' : 'hug');
+  $('#modalDeco').innerHTML = (kind === 'dulces' ? ['🍭', '🧁', '🍬', '🍩'] : ['🤗', '🧸', '🧡'])
+    .map(e => '<span>' + e + '</span>').join('');
+  $('#confirmYes').classList.toggle('btn-candy', kind === 'dulces');
+  $('#confirmYes').classList.toggle('btn-hug', kind !== 'dulces');
+  if (kind === 'dulces') {
+    $('#wishInput').value = '';
+    $('#askErr').hidden = true;
+    showStep('ask');
+  } else {
+    prepareConfirm();
+    showStep('confirm');
+  }
+  modal.hidden = false;
+  document.body.classList.add('modal-open');
+  setTimeout(() => (kind === 'dulces' ? $('#wishInput') : $('#confirmYes')).focus(), 60);
+}
+function closeModal() {
+  modal.hidden = true;
+  document.body.classList.remove('modal-open');
+  if (lastFocus && lastFocus.focus && document.contains(lastFocus)) lastFocus.focus();
+}
+
+document.addEventListener('click', e => {
+  const r = e.target.closest('[data-redeem]');
+  if (r) { openModal(r.dataset.redeem, r); return; }
+  if (e.target.closest('[data-close]')) closeModal();
+});
+document.addEventListener('keydown', e => {
+  if (modal.hidden) return;
+  if (e.key === 'Escape') { closeModal(); return; }
+  if (e.key === 'Tab') {   // el foco se queda dentro de la ficha
+    const f = $$('button, input, a[href]', card).filter(el => !el.closest('[hidden]'));
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
+
+function goConfirm() {
+  const t = $('#wishInput').value.trim();
+  if (!t) { $('#askErr').hidden = false; $('#wishInput').focus(); return; }
+  pendingText = t;
+  prepareConfirm();
+  showStep('confirm');
+  $('#confirmYes').focus();
+}
+$('#askNext').addEventListener('click', goConfirm);
+$('#wishInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); goConfirm(); } });
+$('#wishInput').addEventListener('input', () => { $('#askErr').hidden = true; });
+$('#confirmBack').addEventListener('click', () => {
+  if (current === 'dulces') { showStep('ask'); $('#wishInput').focus(); } else closeModal();
+});
+
+function buildUrl(kind, text, left) {
+  const quedan = left + (left === 1 ? ' cupón' : ' cupones');
+  const msg = kind === 'dulces'
+    ? '¡Hola! Soy ' + CONFIG.nombre + ' 🎂\nQuiero canjear mi cupón de dulces 🍬\n\n👉 Quiero: ' + text + '\n\n(Me quedan ' + quedan + ' de dulces)'
+    : '¡Hola! Soy ' + CONFIG.nombre + ' 🎂\nQuiero canjear mi cupón de abrazo 🤗\n\n(Me quedan ' + quedan + ' de abrazos)';
+  return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+}
+
+$('#confirmYes').addEventListener('click', () => {
+  if (!current || state[current] <= 0) return;
+  state[current] -= 1;
+  saveState();
+  renderCoupons();
+  const url = buildUrl(current, pendingText, state[current]);
+  $('#waLink').href = url;
+  const w = window.open(url, '_blank');
+  if (w) w.opener = null;
+  showStep('done');
 });
 
 /* ── Video de intro ── */
-const intro = document.getElementById('intro');
-const vid = document.getElementById('introVideo');
-const bar = document.getElementById('introBar');
-const soundBtn = document.getElementById('soundBtn');
-const skipBtn = document.getElementById('skipBtn');
-const playBtn = document.getElementById('playBtn');
+const intro = $('#intro');
+const vid = $('#introVideo');
+const bar = $('#introBar');
+const soundBtn = $('#soundBtn');
+const skipBtn = $('#skipBtn');
+const playBtn = $('#playBtn');
 let closed = false;
 
 function closeIntro() {
@@ -449,7 +801,6 @@ soundBtn.addEventListener('click', () => {
   soundBtn.hidden = true;
   vid.play();
 });
-
 playBtn.addEventListener('click', () => {
   vid.muted = false;
   soundBtn.hidden = true;
