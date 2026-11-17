@@ -219,14 +219,12 @@
     </div>
 
     <div class="hero-inner">
-      <p class="hero-lead">¡Feliz cumpleaños!</p>
-      <h1 class="hero-name" data-fill="nombre">NOMBRE</h1>
-      <div class="age" aria-label="años que cumple">
-        <span class="age-num" data-fill="edad">30</span>
-        <span class="age-txt">años<br/>¡y contando!</span>
-      </div>
-      <p class="hero-msg" data-fill="mensajeHero">¡Hoy cumples un año más de vida y de ser una persona maravillosa!</p>
-      <a class="btn btn-sun" href="#mensaje">Abrir mi cartita 💌</a>
+      <h1 class="hero-greet reveal">
+        <span class="hero-name"><span data-fill="nombre">Reyna</span>,</span>
+        <span class="hero-day"><span data-fill="lindoDia">que tengas un lindo día</span> <span class="sun" aria-hidden="true">☀️</span></span>
+      </h1>
+      <p class="hero-msg reveal" style="--rd:.15s" data-fill="mensajeHero">¡Hoy cumples un año más de vida y de ser una persona maravillosa!</p>
+      <a class="btn btn-sun reveal" style="--rd:.3s" href="#mensaje">Abrir mi cartita 💌</a>
     </div>
 
     <span class="float f1" aria-hidden="true">🎈</span>
@@ -234,20 +232,20 @@
     <span class="float f3" aria-hidden="true">🎁</span>
     <span class="float f4" aria-hidden="true">🎈</span>
     <span class="float f5" aria-hidden="true">🎉</span>
-    <img class="stk m-hide" src="stickers/chihuahua-verde.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:5%;bottom:5.5rem;--w:120px;--r:-6deg;--d:4.2s"/>
-    <img class="stk m-hide" src="stickers/pug.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:5%;bottom:5.5rem;--w:112px;--r:6deg;--d:4.8s;--dl:.6s"/>
+    <img class="stk" src="stickers/chihuahua-verde.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--l:5%;--b:5.5rem;--w:120px;--r:-6deg;--d:4.2s;--ml:3%;--mb:1.2rem;--mt:auto;--mw:116px"/>
+    <img class="stk" src="stickers/pug.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--rt:5%;--b:5.5rem;--w:112px;--r:6deg;--d:4.8s;--dl:.6s;--mrt:3%;--mb:1.2rem;--mt:auto;--mw:110px"/>
   </header>
 
   <!-- ═══════════════════════════════════════════
        CARTITA: el mensaje solo se lee al tocar el sobre
        ═══════════════════════════════════════════ -->
   <section class="message" id="mensaje">
-    <img class="stk" src="stickers/hamster-pastel.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:3%;top:7%;--w:118px;--r:-8deg;--d:4.6s"/>
-    <img class="stk" src="stickers/rata-trompeta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:3%;top:8%;--w:124px;--r:8deg;--d:5s;--dl:.5s"/>
-    <img class="stk m-hide" src="stickers/gatito-pastel.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:6%;top:44%;--w:96px;--r:6deg;--d:4.2s;--dl:.9s"/>
-    <img class="stk m-hide" src="stickers/cheems.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:5%;top:46%;--w:118px;--r:-6deg;--d:4.9s;--dl:.3s"/>
-    <img class="stk stand" src="stickers/perrito-azul.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:2%;bottom:0;--w:128px;--r:0deg;--d:3.8s"/>
-    <img class="stk stand" src="stickers/gato-trompeta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:2%;bottom:0;--w:132px;--r:0deg;--d:4.2s;--dl:.7s"/>
+    <img class="stk" src="stickers/hamster-pastel.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--l:3%;--t:7%;--w:118px;--r:-8deg;--d:4.6s;--ml:2%;--mt:1.2rem;--mb:auto;--mw:90px"/>
+    <img class="stk" src="stickers/rata-trompeta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--rt:3%;--t:8%;--w:124px;--r:8deg;--d:5s;--dl:.5s;--mrt:2%;--mt:1.2rem;--mb:auto;--mw:104px"/>
+    <img class="stk stand" src="stickers/gatito-pastel.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--l:6%;--t:44%;--w:96px;--r:6deg;--d:4.2s;--dl:.9s;--ml:calc(50% - 40px);--mrt:auto;--mt:auto;--mb:0;--mw:66px"/>
+    <img class="stk" src="stickers/cheems.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--rt:5%;--t:46%;--w:118px;--r:-6deg;--d:4.9s;--dl:.3s;--mrt:auto;--ml:calc(50% - 50px);--mt:1.5rem;--mb:auto;--mw:100px"/>
+    <img class="stk stand" src="stickers/perrito-azul.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--l:2%;--b:0;--w:128px;--r:0deg;--d:3.8s;--ml:0%;--mb:0;--mt:auto;--mw:112px"/>
+    <img class="stk stand" src="stickers/gato-trompeta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--rt:2%;--b:0;--w:132px;--r:0deg;--d:4.2s;--dl:.7s;--mrt:0%;--mb:0;--mt:auto;--mw:118px"/>
 
     <div class="mail-stage" id="mailStage">
       <div class="env-area" id="envArea">
@@ -266,6 +264,10 @@
 
       <div class="letter-wrap" id="letterWrap" hidden>
         <article class="letter" id="letter" tabindex="-1">
+          <button class="audio-btn" id="audioBtn" type="button" aria-label="Escuchar o pausar el audio de la carta">
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span id="audioLabel">Escuchar audio</span>
+          </button>
           <h2 id="letterGreeting"></h2>
           <div id="letterBody"></div>
           <p class="sign" id="letterSign"></p>
@@ -278,8 +280,8 @@
   <section class="wishes">
     <h2>Mis deseos para ti</h2>
     <div class="wish-strip" id="wishStrip"></div>
-    <img class="stk stand" src="stickers/chihuahua-sonrisa.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="left:4%;bottom:0;--w:118px;--r:0deg;--d:4s"/>
-    <img class="stk stand" src="stickers/chihuahua-pompon.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="right:4%;bottom:0;--w:140px;--r:0deg;--d:4.6s;--dl:.5s"/>
+    <img class="stk stand" src="stickers/chihuahua-sonrisa.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--l:4%;--b:0;--w:118px;--r:0deg;--d:4s;--ml:3%;--mb:0;--mt:auto;--mw:104px"/>
+    <img class="stk stand" src="stickers/chihuahua-pompon.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--rt:4%;--b:0;--w:140px;--r:0deg;--d:4.6s;--dl:.5s;--mrt:3%;--mb:0;--mt:auto;--mw:122px"/>
   </section>
 
   <!-- ═══════════════════════════════════════════
@@ -294,7 +296,7 @@
     <div class="sur-grid">
 
       <!-- Vela -->
-      <div class="candle-card">
+      <div class="candle-card reveal">
         <div class="cake-wrap" id="cakeWrap">
           <div class="halo" aria-hidden="true"></div>
           <img class="pop-stk left"  src="stickers/hurones-pastel.webp" alt="" aria-hidden="true" style="--r:-8deg"/>
@@ -356,7 +358,7 @@
 
       <!-- Cupones -->
       <div class="coupons" aria-label="Cupones">
-        <article class="coupon coupon-sweet" id="couponSweet">
+        <article class="reveal coupon coupon-sweet" id="couponSweet">
           <img class="coupon-stk" src="stickers/gato-cupcake.webp" alt="" aria-hidden="true" loading="lazy"/>
           <div>
             <h3>Cupón de dulces</h3>
@@ -367,15 +369,16 @@
           <div class="coupon-action" id="actionSweet"></div>
         </article>
 
-        <article class="coupon coupon-hug" id="couponHug">
+        <article class="reveal coupon coupon-hug" id="couponHug" style="--rd:.12s">
           <img class="coupon-stk" src="stickers/gato-regalo.webp" alt="" aria-hidden="true" loading="lazy" style="animation-delay:.8s"/>
           <div>
             <h3>Cupón de abrazos</h3>
-            <p class="sub">Un abrazo de los buenos, cuando más lo necesites</p>
-            <div class="pips" id="pipsHug" aria-hidden="true"></div>
-            <p class="left-count" id="leftHug"></p>
+            <p class="sub">Un abrazo de los buenos, cuando más lo necesites. ¡Todos los que quieras!</p>
+            <p class="unlimited"><span aria-hidden="true">♾️</span> Abrazos ilimitados</p>
           </div>
-          <div class="coupon-action" id="actionHug"></div>
+          <div class="coupon-action">
+            <button class="btn btn-hug" type="button" data-redeem="abrazos">🤗 Canjear abrazo</button>
+          </div>
         </article>
       </div>
 
@@ -435,10 +438,10 @@
 <script>
 const CONFIG = {
   nombre: "Reyna",                       // Nombre de quien cumple años
-  edad:   "30",                          // Años que cumple
   cumple: "17 de noviembre",             // Fecha que aparece en la cinta dorada
 
-  // Mensaje de la portada
+  // Portada: "Reyna, que tengas un lindo día" y el mensaje de abajo
+  lindoDia: "que tengas un lindo día",
   mensajeHero: "¡Hoy cumples un año más de vida y de ser una persona maravillosa!",
 
   // La cartita (solo se lee al tocar el sobre). Cada línea es un párrafo.
@@ -464,11 +467,12 @@ const CONFIG = {
 
   // Cupones: a este número llegan los mensajes de WhatsApp (código de Bolivia 591, sin + ni espacios)
   whatsapp: "59168912447",
-  cupones: { dulces: 5, abrazos: 5 }
+  cupones: { dulces: 5 }                 // Los abrazos son ilimitados, no llevan contador
 };
 </script>
 
 <script>
+document.documentElement.classList.add('js');
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
@@ -479,9 +483,10 @@ $$('[data-fill]').forEach(el => {
 });
 document.title = '¡Feliz cumpleaños, ' + CONFIG.nombre + '!';
 
-CONFIG.deseos.forEach(d => {
+CONFIG.deseos.forEach((d, i) => {
   const div = document.createElement('div');
-  div.className = 'wish';
+  div.className = 'wish reveal';
+  div.style.setProperty('--rd', (i * 0.12) + 's');
   div.innerHTML = '<span aria-hidden="true"></span><p></p>';
   $('span', div).textContent = d.icono;
   $('p', div).textContent = d.texto;
@@ -576,9 +581,27 @@ const goldConfetti = (function () {
 
 /* ── La cartita ── */
 const stage = $('#mailStage'), envBtn = $('#envelopeBtn');
+/* Audio de la carta: empieza al tocar el sobre (el toque permite el sonido en el celular) */
+const cartaAudio = new Audio('audio-carta.mp3');
+cartaAudio.preload = 'metadata';
+const audioBtn = $('#audioBtn'), audioLabel = $('#audioLabel');
+function paintAudio() {
+  const playing = !cartaAudio.paused && !cartaAudio.ended;
+  audioBtn.classList.toggle('playing', playing);
+  audioLabel.textContent = playing ? 'Pausar audio' : (cartaAudio.ended ? 'Escuchar de nuevo' : 'Escuchar audio');
+}
+['play', 'pause', 'ended'].forEach(ev => cartaAudio.addEventListener(ev, paintAudio));
+cartaAudio.addEventListener('error', () => { audioBtn.hidden = true; });   // si falta el archivo, no se muestra el botón
+audioBtn.addEventListener('click', () => {
+  if (!cartaAudio.paused && !cartaAudio.ended) { cartaAudio.pause(); return; }
+  if (cartaAudio.ended) cartaAudio.currentTime = 0;
+  const p = cartaAudio.play(); if (p && p.catch) p.catch(() => {});
+});
+
 envBtn.addEventListener('click', () => {
   if (stage.classList.contains('open')) return;
   stage.classList.add('open');
+  const pa = cartaAudio.play(); if (pa && pa.catch) pa.catch(() => {});
   envBtn.setAttribute('aria-expanded', 'true');
 
   // La carta se arma solo ahora, al abrir el sobre
@@ -627,42 +650,32 @@ relightBtn.addEventListener('click', () => {
   blowBtn.hidden = false;
 });
 
-/* ── Cupones ── */
+/* ── Cupones: solo los dulces llevan contador; los abrazos son ilimitados ── */
 const KEY = 'cumple-cupones-v1';
-const MAX = { dulces: CONFIG.cupones.dulces, abrazos: CONFIG.cupones.abrazos };
-// Para volver a poner los contadores en 5 (por ejemplo, al probar): abre la página con ?reiniciar=cupones
+const MAX = CONFIG.cupones.dulces;
+// Para volver a poner el contador en 5 (por ejemplo, al probar): abre la página con ?reiniciar=cupones
 if (/reiniciar=cupones/.test(location.search)) { try { localStorage.removeItem(KEY); } catch (e) {} }
 
-const clamp = (n, max) => Math.max(0, Math.min(max, n));
-function loadState() {
+function loadDulces() {
   try {
-    const s = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (s && Number.isInteger(s.dulces) && Number.isInteger(s.abrazos))
-      return { dulces: clamp(s.dulces, MAX.dulces), abrazos: clamp(s.abrazos, MAX.abrazos) };
+    const st = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (st && Number.isInteger(st.dulces)) return Math.max(0, Math.min(MAX, st.dulces));
   } catch (e) {}
-  return { dulces: MAX.dulces, abrazos: MAX.abrazos };
+  return MAX;
 }
-function saveState() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
-let state = loadState();
-
-const KINDS = {
-  dulces:  { pip: '🍬', pips: '#pipsSweet', left: '#leftSweet', act: '#actionSweet', card: '#couponSweet', btn: 'btn-candy', label: '🍬 Canjear cupón' },
-  abrazos: { pip: '🧡', pips: '#pipsHug',   left: '#leftHug',   act: '#actionHug',   card: '#couponHug',   btn: 'btn-hug',   label: '🤗 Canjear abrazo' }
-};
+let dulces = loadDulces();
+function saveDulces() { try { localStorage.setItem(KEY, JSON.stringify({ dulces })); } catch (e) {} }
 
 function renderCoupons() {
-  for (const k in KINDS) {
-    const c = KINDS[k], n = state[k], max = MAX[k];
-    $(c.pips).innerHTML = Array.from({ length: max }, (_, i) =>
-      '<span class="pip' + (i < n ? '' : ' used') + '">' + c.pip + '</span>').join('');
-    $(c.left).textContent = n > 0
-      ? 'Te ' + (n === 1 ? 'queda ' : 'quedan ') + n + ' de ' + max
-      : 'Ya usaste todos tus cupones';
-    $(c.card).classList.toggle('is-empty', n === 0);
-    $(c.act).innerHTML = n > 0
-      ? '<button class="btn ' + c.btn + '" type="button" data-redeem="' + k + '">' + c.label + '</button>'
-      : '<span class="sold-out">🚫 Cupones agotados</span>';
-  }
+  $('#pipsSweet').innerHTML = Array.from({ length: MAX }, (_, i) =>
+    '<span class="pip' + (i < dulces ? '' : ' used') + '">🍬</span>').join('');
+  $('#leftSweet').textContent = dulces > 0
+    ? 'Te ' + (dulces === 1 ? 'queda ' : 'quedan ') + dulces + ' de ' + MAX
+    : 'Ya usaste todos tus cupones';
+  $('#couponSweet').classList.toggle('is-empty', dulces === 0);
+  $('#actionSweet').innerHTML = dulces > 0
+    ? '<button class="btn btn-candy" type="button" data-redeem="dulces">🍬 Canjear cupón</button>'
+    : '<span class="sold-out">🚫 Cupones agotados</span>';
 }
 renderCoupons();
 
@@ -747,25 +760,37 @@ $('#confirmBack').addEventListener('click', () => {
   if (current === 'dulces') { showStep('ask'); $('#wishInput').focus(); } else closeModal();
 });
 
-function buildUrl(kind, text, left) {
-  const quedan = left + (left === 1 ? ' cupón' : ' cupones');
+function buildUrl(kind, text) {
   const msg = kind === 'dulces'
-    ? '¡Hola! Soy ' + CONFIG.nombre + ' 🎂\nQuiero canjear mi cupón de dulces 🍬\n\n👉 Quiero: ' + text + '\n\n(Me quedan ' + quedan + ' de dulces)'
-    : '¡Hola! Soy ' + CONFIG.nombre + ' 🎂\nQuiero canjear mi cupón de abrazo 🤗\n\n(Me quedan ' + quedan + ' de abrazos)';
+    ? '¡Hola! Soy ' + CONFIG.nombre + ' 🎂\nQuiero canjear mi cupón de dulces 🍬\n\n👉 Quiero: ' + text + '\n\n(Me quedan ' + dulces + (dulces === 1 ? ' cupón' : ' cupones') + ' de dulces)'
+    : '¡Hola! Soy ' + CONFIG.nombre + ' 🎂\nQuiero canjear mi cupón de abrazo 🤗\n\n(¡Mis abrazos son ilimitados! 💛)';
   return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
 }
 
 $('#confirmYes').addEventListener('click', () => {
-  if (!current || state[current] <= 0) return;
-  state[current] -= 1;
-  saveState();
-  renderCoupons();
-  const url = buildUrl(current, pendingText, state[current]);
+  if (!current) return;
+  if (current === 'dulces') {
+    if (dulces <= 0) return;
+    dulces -= 1;
+    saveDulces();
+    renderCoupons();
+  }
+  const url = buildUrl(current, pendingText);
   $('#waLink').href = url;
   const w = window.open(url, '_blank');
   if (w) w.opener = null;
   showStep('done');
 });
+
+/* ── Aparición suave al hacer scroll ── */
+(function () {
+  const els = $$('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.2 });
+  els.forEach(e => io.observe(e));
+})();
 
 /* ── Video de intro ── */
 const intro = $('#intro');
